@@ -26,27 +26,8 @@
 <script src="libs/navigation-1.1/codefolding.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"></link>
-<script src="libs/exploratory/resources/jquery.min.js?cb=cb1559712086658"></script>
-<script src="libs/exploratory/resources/d3.min.js?cb=cb1559712086658"></script>
-<script src="libs/exploratory/resources/viz.min.js?cb=cb1559712086658"></script>
-<script src="libs/exploratory/resources/plotly.min.js?cb=cb1559712086658"></script>
-<style  type="text/css">
-  /* plotly exploratory extension */
-  .js-plotly-plot .plotly .legendpoints  .pointtext  text {
-    visibility: hidden!important;
-  }
-  /**
-   * Workaround to make the circles in the legend in even size. 
-   * https://community.plot.ly/t/controlling-legend-circle-size-in-bubble-plot/3418
-   * https://stackoverflow.com/questions/40098827/r-plotly-version-4-5-2-scatterplot-legend-bubble-size-settings
-   * https://stackoverflow.com/questions/524696/how-to-create-a-style-tag-with-javascript
-   */
-  .legendpoints path.scatterpts { 
-    d: path('M 3.2 0 A 3.2 3.2 0 1 1 0 -3.2 A 3.2 3.2 0 0 1 3.2 0 Z'); 
-  }
+<script src="libs/exploratory/resources/jquery.min.js?cb=cb1559763500245"></script>
 
-</style>
-<script src="libs/exploratory/analytics/GgH1OlV0.js"></script>
 
 
 
@@ -333,10 +314,21 @@ div.tocify {
 
 </div>
 </div>
+<div id="complete-cases-vs-incomplete-cases" class="section level2">
+<h2>Complete cases vs Incomplete cases</h2>
+<ul>
+<li>The blue line represents schools in New York City.</li>
+<li>The orange line represents other schools in New York State.</li>
+</ul>
+<div class="figure">
+<img src="libs/exploratory/images/p5.png" />
+
+</div>
+</div>
 <div id="correlation" class="section level2">
 <h2>Correlation</h2>
 <div class="figure">
-<img src="libs/exploratory/images/p5.png" />
+<img src="libs/exploratory/images/p6.png" />
 
 </div>
 <p>Linear models will be benefit from reducing the level of correlation between the predictors. We remove absolute pair-wise correlations greater than 0.82, which are Economic Need Index and Poverty.</p>
@@ -345,7 +337,7 @@ summary(descrCor[upper.tri(descrCor)])
 highlyCorDescr &lt;- findCorrelation(descrCor, cutoff = .82)
 Data &lt;- Data[,-highlyCorDescr]</code></pre>
 <div class="figure">
-<img src="libs/exploratory/images/p6.png" />
+<img src="libs/exploratory/images/p7.png" />
 
 </div>
 </div>
@@ -357,11 +349,11 @@ Data &lt;- Data[,-highlyCorDescr]</code></pre>
 <div id="rmse-result" class="section level3">
 <h3>RMSE result</h3>
 <div class="figure">
-<img src="libs/exploratory/images/p7.png" />
+<img src="libs/exploratory/images/p8.png" />
 
 </div>
 <div class="figure">
-<img src="libs/exploratory/images/p8.png" />
+<img src="libs/exploratory/images/p9.png" />
 
 </div>
 </div>
@@ -375,49 +367,36 @@ Data &lt;- Data[,-highlyCorDescr]</code></pre>
 <li>hatb_M0: <span class="math inline"><em>β</em><sub>Partial Model with overlaps</sub></span></li>
 </ul>
 <div class="figure">
-<img src="libs/exploratory/images/p9.png" />
-
-</div>
-</div>
-<div id="variable-importance" class="section level3">
-<h3>Variable importance</h3>
-<script data-id="analytics_1" data-object-name="analytics_GgH1OlV0" data-viz="feature_importance_bar" data-analysis="GgH1OlV0" data-height="normal" data-width="normal" ></script><div data-id="analytics_1" style="width:100%; height:400px; display:table;margin-bottom:38px" class="viz-rendering-error viz-loading"><div style="width:100%; height:100%; display:table-cell; vertical-align:middle; text-align:center; font-size:14px; color:#999; background-color:white;font-family:sans-serif "><div>Loading... </div></div></div>
-</div>
-<div id="effects-by-variables" class="section level3">
-<h3>Effects by variables</h3>
-<script data-id="analytics_2" data-object-name="analytics_GgH1OlV0" data-viz="local_importance_regression" data-analysis="GgH1OlV0" data-height="normal" data-width="normal" ></script><div data-id="analytics_2" style="width:100%; height:400px; display:table;margin-bottom:38px" class="viz-rendering-error viz-loading"><div style="width:100%; height:100%; display:table-cell; vertical-align:middle; text-align:center; font-size:14px; color:#999; background-color:white;font-family:sans-serif "><div>Loading... </div></div></div>
-</div>
-</div>
-<div id="complete-cases-vs-incomplete-cases" class="section level2">
-<h2>Complete cases vs Incomplete cases</h2>
-<ul>
-<li>The blue line represents schools in New York City.</li>
-<li>The orange line represents other schools in New York State.</li>
-</ul>
-<div class="figure">
 <img src="libs/exploratory/images/p10.png" />
 
+</div>
 </div>
 </div>
 <div id="linear-regression-2" class="section level2">
 <h2>Linear Regression 2</h2>
 <p>Let’s remove absolute pair-wise correlations greater than 0.8, which are Economic Need Index, Poverty and Trust Score. Since Total predictor is not significant in above linear model, let’s remove it as well.</p>
+<div id="rmse-result-1" class="section level3">
+<h3>RMSE result</h3>
 <div class="figure">
-<img src="libs/exploratory/images/p7.png" />
+<img src="libs/exploratory/images/p8.png" />
 
 </div>
 <div class="figure">
 <img src="libs/exploratory/images/p11.png" />
 
 </div>
+</div>
+<div id="coefficient-1" class="section level3">
+<h3>Coefficient</h3>
 <div class="figure">
 <img src="libs/exploratory/images/p12.png" />
 
 </div>
 </div>
+</div>
 <div id="conclusion" class="section level2">
 <h2>Conclusion</h2>
-<p>The Model Combination method performs superior than MI and Full model on complete cases. But it doesn’t beat MI on full testing data because large amount of incomplete cases are predicted by partial model with greater RMSE.</p>
+<p>The Model Combination method performs superior than MI and Full model on complete cases. CV estimation and Plugin estimation works similar in the example. The RMSE of Model Combination on full testing data becomes greater because large percentage of incomplete cases are predicted by partial model with greater RMSE.</p>
 </div>
 </div>
 
